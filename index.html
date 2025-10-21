@@ -28,6 +28,20 @@
             color: #1d4ed8;
             font-weight: bold;
         }
+        /* Ensure table columns are constrained on mobile but still scrollable */
+        .min-w-full th, .min-w-full td {
+            min-width: 120px; /* Small minimum width for readability */
+        }
+        /* Responsive flex for the sofa seating */
+        @media (max-width: 640px) {
+            .sofa-layout {
+                flex-wrap: wrap;
+            }
+            .sofa-layout > div {
+                flex: 1 1 45%; /* Allow wrapping with two items per row on very small screens */
+                margin-bottom: 0.5rem;
+            }
+        }
     </style>
 </head>
 <body class="p-4 sm:p-8">
@@ -112,7 +126,7 @@
             <div class="p-6 bg-white rounded-lg card">
                 <h2 class="text-xl font-bold text-gray-900 section-header pb-2 mb-4">3) VIP Protocol & Seating</h2>
                 <p class="font-semibold text-gray-800 mb-2">Sofa Seating (Audience View L ➜ R):</p>
-                <div class="flex space-x-2 text-sm text-center font-mono mb-4">
+                <div class="flex space-x-2 text-sm text-center font-mono mb-4 sofa-layout">
                     <div class="flex-1 p-2 bg-indigo-100 rounded">S1 PPD</div>
                     <div class="flex-1 p-2 bg-indigo-100 rounded">S2 Datuk Haji Len</div>
                     <div class="flex-1 p-2 bg-indigo-200 rounded font-bold">S3 Dr Sim (GOH)</div>
